@@ -1,110 +1,56 @@
 import React, { useState } from 'react'
 
 function MovingDot() {
-    const [positon, setPosition] = useState({ x: 0, y: 0 });
-
-    // এখানে ৩টা জিনিস বুঝতে হবে:
-
-    // 🔹 position
-    //     position = { x: 0, y: 0 }
+    const [position, setPosition] = useState({ x: 0, y: 0 });
 
 
-    // 👉 dot - এর বর্তমান অবস্থান
-    // 👉 শুরুতে স্ক্রিনের(0, 0) পজিশনে
-
-    // 🔹 setPosition
-
-    // 👉 position পরিবর্তন করার ফাংশন
-    // 👉 এটা কল করলেই React আবার render করবে
 
 
 
     return (
-        <div>
-
-            {/* 
-            🔥 এখানে আসল ম্যাজিক
-🔹 onPointerMove
-
-👉 মাউস / টাচ / পেন নড়লেই এই function চলবে
-
-🔹 e
-
-👉 event object
-👉 মাউস কোথায় আছে সেই তথ্য দেয়
-
-🔹 e.clientX
-
-👉 মাউসের X position (left থেকে কত px)
-
-🔹 e.clientY
-
-👉 মাউসের Y position (top থেকে কত px)
-
-🔹 setPosition(...)
-
-👉 মাউস নড়লেই নতুন position save হচ্ছে
-👉 তাই dot মাউসের সাথে সাথে নড়ে
-            
-            
-            */}
+        <div
             onPointerMove={e => {
                 setPosition({
                     x: e.clientX,
                     y: e.clientY
                 });
-
-
             }}
-
             style={{
-                positon: 'absolute',
+                position: 'relative',
                 width: '100vw',
-                height: '100vh'
-
-
-                // 🔹 position: relative
-                // 👉 ভেতরের absolute element (লাল dot) এই div-এর ভিতরে থাকবে
-
-                // 🔹 100vw / 100vh
-                // 👉 পুরো screen জুড়ে container
-
+                height: '100vh',
             }}
-
-            style={{
-                // 7️⃣ লাল গোল dot
-                //     👉 এটা আমাদের dot
-
-                // 🔹 position: absolute
-
-                // 👉 parent (relative) এর ভিতরে freely move করবে
-
-                // 🔹 borderRadius: '50%'
-
-                // 👉 গোল বানানোর জন্য
-
-                positon: 'absolute',
-                backgroundColor: 'red',
-                borderRadius: '50%',
+        >
 
 
-                //8️⃣ transform দিয়ে move করা
-            //     👉 এখানে সবচেয়ে important part
 
-            // position.x → মাউসের X
+            <div
+                style={{
 
-            // position.y → মাউসের Y
 
-            // translate() → element কে সরায়
+                    position: 'absolute',
+                    backgroundColor: 'red',
+                    borderRadius: '50%',
 
-            // 📌 মানে:
 
-            // state বদলাচ্ছে → transform বদলাচ্ছে → dot নড়ছে
 
-            transform: `translate(${positon.x}px, ${positon.y}px)`,
-            }}
+                    transform: `translate(${position.x}px, ${position.y}px)`,
+
+
+
+
+                    left: -10,
+                    top: -10,
+                    width: 20,
+                    height: 20,
+
+
+                }} />
         </div>
     )
 }
 
 export default MovingDot
+
+
+

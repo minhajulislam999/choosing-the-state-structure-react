@@ -1,9 +1,10 @@
 import React from 'react'
+import MovingDot from './components/MovingDot/MovingDot'
 
 function App() {
   return (
     <div>
-      d
+      <MovingDot />
     </div>
   )
 }
