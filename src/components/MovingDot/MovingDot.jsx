@@ -70,6 +70,12 @@ return (
 // 👉 পুরো screen জুড়ে container
                 
             }}
+
+            style={{
+                positon: 'absolute',
+                backgroundColor: 'red',
+                borderRadius: '50%',
+            }}
         </div>
     )
 }
