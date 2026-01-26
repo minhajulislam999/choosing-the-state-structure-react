@@ -2,12 +2,7 @@ import React, { useState } from 'react'
 
 function MovingDot() {
     const [position, setPosition] = useState({ x: 0, y: 0 });
-
-
-
-
-
-    return (
+  return (
         <div
             onPointerMove={e => {
                 setPosition({
@@ -21,31 +16,17 @@ function MovingDot() {
                 height: '100vh',
             }}
         >
-
-
-
-            <div
+          <div
                 style={{
-
-
-                    position: 'absolute',
+                   position: 'absolute',
                     backgroundColor: 'red',
                     borderRadius: '50%',
-
-
-
                     transform: `translate(${position.x}px, ${position.y}px)`,
-
-
-
-
                     left: -10,
                     top: -10,
                     width: 20,
                     height: 20,
-
-
-                }} />
+             }} />
         </div>
     )
 }
